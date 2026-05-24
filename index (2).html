@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Luis Carlos Nacero Rodríguez</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    color: #1a1a1a;
+    background: #e8e4df;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 2rem auto;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 218px 1fr;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+
+  /* ====== SIDEBAR ====== */
+  .sidebar {
+    background: #0c1e2b;
+    color: #d4cfc8;
+    padding: 2.2rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: #7a9bb5;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #1e3347;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-section ul { list-style: none; }
+  .sidebar-section li {
+    font-size: 0.76rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.76rem;
+    line-height: 1.5;
+    word-break: break-all;
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+    opacity: 0.45;
+  }
+
+  .contact-item a { color: #d4cfc8; text-decoration: none; }
+  .contact-item a:hover { color: #fff; }
+
+  .skill-bar-wrap { margin-bottom: 0.45rem; }
+  .skill-bar-label { font-size: 0.72rem; margin-bottom: 0.15rem; color: #bbb5ac; }
+  .skill-bar { height: 4px; background: #1e3347; border-radius: 2px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; background: linear-gradient(90deg, #4a8fb8, #7bbfdf); border-radius: 2px; }
+
+  .sidebar-tag-list { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+  .sidebar-tag {
+    font-size: 0.62rem;
+    background: #162d3f;
+    color: #8baec6;
+    padding: 0.18rem 0.45rem;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ====== MAIN ====== */
+  .main { padding: 2.2rem 2rem 2rem 1.8rem; }
+
+  .header {
+    margin-bottom: 1.6rem;
+    border-bottom: 2px solid #0c1e2b;
+    padding-bottom: 1rem;
+  }
+
+  .header h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: #0c1e2b;
+  }
+
+  .header .subtitle {
+    font-size: 0.82rem;
+    color: #4a7a9b;
+    margin-top: 0.3rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .profile-text {
+    font-size: 0.8rem;
+    color: #3a3a3a;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .section { margin-bottom: 1.4rem; }
+
+  .section-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #0c1e2b;
+    border-bottom: 1px solid #d0ccc6;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .experience-item {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 0.85rem;
+    border-left: 2px solid #d0ccc6;
+  }
+  .experience-item:last-child { margin-bottom: 0; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .exp-title { font-weight: 700; font-size: 0.82rem; color: #0c1e2b; }
+  .exp-dates { font-size: 0.7rem; color: #7a7a7a; white-space: nowrap; }
+  .exp-company { font-size: 0.76rem; color: #4a7a9b; font-weight: 600; margin-bottom: 0.3rem; }
+  .exp-type { font-size: 0.66rem; color: #999; font-style: italic; }
+
+  .exp-bullets { list-style: none; margin-top: 0.25rem; }
+  .exp-bullets li {
+    font-size: 0.76rem;
+    color: #3a3a3a;
+    margin-bottom: 0.2rem;
+    padding-left: 0.75rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: #b0b0b0; }
+
+  .edu-item {
+    margin-bottom: 0.8rem;
+    padding-left: 0.85rem;
+    border-left: 2px solid #d0ccc6;
+  }
+  .edu-title { font-weight: 700; font-size: 0.8rem; color: #0c1e2b; }
+  .edu-school { font-size: 0.73rem; color: #4a7a9b; font-weight: 600; }
+  .edu-dates { font-size: 0.68rem; color: #7a7a7a; }
+
+  .highlight-box {
+    background: #f4f8fb;
+    border: 1px solid #d6e4ee;
+    border-radius: 6px;
+    padding: 0.7rem 0.9rem;
+    margin-top: 0.5rem;
+    font-size: 0.74rem;
+    color: #2a5070;
+    line-height: 1.55;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; width: 100%; min-height: 100vh; }
+  }
+
+  @media (max-width: 800px) {
+    .page { width: 100%; grid-template-columns: 1fr; margin: 0; }
+    .sidebar { padding: 1.5rem; }
+    .main { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+
+    <div class="sidebar-section">
+      <h2>Contacto</h2>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        <a href="mailto:luisnacero@outlook.es">luisnacero@outlook.es</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>+34 685 928 800</span>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Valencia, España</span>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 01-12 0 6 6 0 0112 0zM2 21a10 10 0 0120 0" transform="translate(2,0)"/><path d="M16 8a6 6 0 016 6v1a2 2 0 01-4 0v-1a6 6 0 00-12 0"/></svg>
+        <a href="https://www.linkedin.com/in/luisnacero">linkedin.com/in/luisnacero</a>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h2>Herramientas analíticas</h2>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Excel avanzado / VBA</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Power BI (DAX, modelado)</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Python (análisis de datos)</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Power Automate</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Microsoft 365</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h2>Librerías Python</h2>
+      <div class="sidebar-tag-list">
+        <span class="sidebar-tag">pandas</span>
+        <span class="sidebar-tag">openpyxl</span>
+        <span class="sidebar-tag">lxml</span>
+        <span class="sidebar-tag">Selenium</span>
+        <span class="sidebar-tag">Playwright</span>
+        <span class="sidebar-tag">Tkinter</span>
+        <span class="sidebar-tag">pyhanko</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h2>IA aplicada al análisis</h2>
+      <ul>
+        <li>Claude (Anthropic)</li>
+        <li>Gemini (Google)</li>
+      </ul>
+      <p style="font-size:0.68rem; color:#7a9bb5; margin-top:0.3rem; line-height:1.4;">
+        Integración de IA en flujos de trabajo para análisis de datos financieros, extracción documental y generación de informes.
+      </p>
+    </div>
+
+    <div class="sidebar-section">
+      <h2>Competencias</h2>
+      <ul>
+        <li>Análisis de datos</li>
+        <li>Facturación y conciliación</li>
+        <li>Automatización de procesos</li>
+        <li>Atención al detalle</li>
+        <li>Aprendizaje autónomo rápido</li>
+        <li>Resolución de problemas</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <h2>Idiomas</h2>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Español — Nativo</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Inglés — B2</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:60%"></div></div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="main">
+
+    <div class="header">
+      <h1>Luis Carlos<br>Nacero Rodríguez</h1>
+      <div class="subtitle">Contable · Analista de Datos Financieros</div>
+    </div>
+
+    <p class="profile-text">
+      Profesional con más de 4 años de experiencia en gestión contable, análisis de datos financieros y automatización de procesos en el sector energético. Actualmente cursando el Grado en Economía (UNED, 2.º año), con formación previa en Administración y Finanzas. Combino el dominio de herramientas analíticas (Excel avanzado, Power BI, Python, Power Automate) con inteligencia artificial aplicada para transformar grandes volúmenes de datos en información accionable. Perfil con alta capacidad de aprendizaje autónomo y orientación a resultados.
+    </p>
+
+    <!-- EXPERIENCIA -->
+    <div class="section">
+      <h2 class="section-title">Experiencia Laboral</h2>
+
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-title">Consultor Energético y Back Office</span>
+          <span class="exp-dates">may. 2021 — Actualidad</span>
+        </div>
+        <div class="exp-company">Azigrene Energy Consulting, Valencia <span class="exp-type">· Jornada completa</span></div>
+        <ul class="exp-bullets">
+          <li>Gestión contable y conciliación de más de 12.000 facturas de electricidad y gas anuales, incluyendo análisis de discrepancias entre importes facturados y bases imponibles.</li>
+          <li>Construcción de dashboards en Power BI con medidas DAX para KPIs de estado de proyectos, índices de priorización y seguimiento de carga de datos por comercializadora.</li>
+          <li>Desarrollo de herramientas Python para extracción masiva de datos de facturas XML (FacturaE) y PDFs, consolidación de datasets de +76.000 registros y exportación a Excel.</li>
+          <li>Automatización de flujos documentales con Power Automate y scripts Python, reduciendo tiempos de procesamiento de datos en un 80%.</li>
+          <li>Generación automatizada de certificados de eficiencia energética y documentación regulatoria con manipulación XML.</li>
+          <li>Creación de dashboards interactivos en HTML con Chart.js para reporting financiero a clientes.</li>
+          <li>Análisis fiscal de facturación energética: validación de bases imponibles, impuestos especiales (IE) y cuadres de IVA en facturas electrónicas.</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>Uso de IA en el puesto:</strong> Integración de Claude y Gemini como herramientas de análisis para procesamiento de datos financieros complejos, generación de código de automatización y revisión de lógica contable.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-title">Repartidor</span>
+          <span class="exp-dates">may. 2019 — dic. 2022</span>
+        </div>
+        <div class="exp-company">Burger King, Valencia <span class="exp-type">· Jornada parcial</span></div>
+        <ul class="exp-bullets">
+          <li>Entrega de pedidos bajo plazos estrictos, logrando un 95% de satisfacción del cliente.</li>
+          <li>Gestión eficiente de rutas de entrega mediante planificación estratégica.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-title">Camarero</span>
+          <span class="exp-dates">nov. 2017 — may. 2018</span>
+        </div>
+        <div class="exp-company">Dibocca Restaurante, Valencia <span class="exp-type">· Jornada completa</span></div>
+        <ul class="exp-bullets">
+          <li>Atención a un promedio de 50 clientes diarios, garantizando un servicio rápido y de calidad.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EDUCACIÓN -->
+    <div class="section">
+      <h2 class="section-title">Educación</h2>
+
+      <div class="edu-item">
+        <div class="edu-title">Grado en Economía</div>
+        <div class="edu-school">UNED</div>
+        <div class="edu-dates">2024 — Actualidad · 2.º año en curso</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-title">CFGS en Administración y Finanzas</div>
+        <div class="edu-school">I.E.S. El Grau, Valencia</div>
+        <div class="edu-dates">2019 — 2021</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-title">Estudios universitarios en Arquitectura (no finalizados)</div>
+        <div class="edu-school">Universidad Santiago Mariño, Venezuela</div>
+        <div class="edu-dates">2013 — 2017</div>
+      </div>
+    </div>
+
+    <!-- FORMACIÓN COMPLEMENTARIA -->
+    <div class="section">
+      <h2 class="section-title">Formación complementaria</h2>
+      <div class="edu-item">
+        <div class="edu-title">Declaración IRPF y fiscalidad personal</div>
+        <div class="edu-school">Formación autodidacta aplicada</div>
+        <div class="edu-dates">Análisis de cuota íntegra, mínimos personales y familiares, modalidades de tributación (individual vs. conjunta) y retenciones.</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
